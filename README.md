@@ -1,1 +1,0 @@
-# Syndic-Django
