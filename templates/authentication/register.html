@@ -1,0 +1,129 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+
+
+<link rel="stylesheet" href="{% static 'css/authentication/bootstrap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/authentication/register.css' %}">
+<title>Login #7</title>
+<script nonce="1b943b87-80ca-4001-90fc-0a1aaa524b2c">(function(w,d){!function(f,g,h,i){f[h]=f[h]||{};f[h].executed=[];f.zaraz={deferred:[],listeners:[]};f.zaraz.q=[];f.zaraz._f=function(j){return function(){var k=Array.prototype.slice.call(arguments);f.zaraz.q.push({m:j,a:k})}};for(const l of["track","set","debug"])f.zaraz[l]=f.zaraz._f(l);f.zaraz.init=()=>{var m=g.getElementsByTagName(i)[0],n=g.createElement(i),o=g.getElementsByTagName("title")[0];o&&(f[h].t=g.getElementsByTagName("title")[0].text);f[h].x=Math.random();f[h].w=f.screen.width;f[h].h=f.screen.height;f[h].j=f.innerHeight;f[h].e=f.innerWidth;f[h].l=f.location.href;f[h].r=g.referrer;f[h].k=f.screen.colorDepth;f[h].n=g.characterSet;f[h].o=(new Date).getTimezoneOffset();if(f.dataLayer)for(const s of Object.entries(Object.entries(dataLayer).reduce(((t,u)=>({...t[1],...u[1]})))))zaraz.set(s[0],s[1],{scope:"page"});f[h].q=[];for(;f.zaraz.q.length;){const v=f.zaraz.q.shift();f[h].q.push(v)}n.defer=!0;for(const w of[localStorage,sessionStorage])Object.keys(w||{}).filter((y=>y.startsWith("_zaraz_"))).forEach((x=>{try{f[h]["z_"+x.slice(7)]=JSON.parse(w.getItem(x))}catch{f[h]["z_"+x.slice(7)]=w.getItem(x)}}));n.referrerPolicy="origin";n.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(f[h])));m.parentNode.insertBefore(n,m)};["complete","interactive"].includes(g.readyState)?zaraz.init():f.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
+<body>
+   
+<div class="content">
+<div class="container">
+    <div class="card2" style="float:center">
+       
+        
+        
+        <div class="card-body" >
+          <center>  <h1>Sign Up</h1></center>
+            <img src="{% static 'img/signin.jpg' %}" width="500" >  
+    <form method="POST" style="float:right" enctype="multipart/form-data">
+            
+    {% csrf_token %}
+    <div class="row form-group">
+
+    <div class="form-group first">
+        <label for="first_name"><small>First Name</small><small style= "color:red"> *</small></label>
+        {{form.first_name}}
+
+
+        </div>
+        <div class="col">
+    <div class="form-group ">
+        <label for="last_name"><small>Last Name</small><small style= "color:red"> *</small></label>
+        {{form.last_name}}
+
+
+    </div>
+    </div>
+</div>
+<div class="row form-group">
+
+<div class="form-group first">
+    <label for="username"><small>Username</small><small style= "color:red"> *</small></label>
+{{form.username}}
+
+</div>
+<div class="col">
+<div class="form-group first">
+    <label for="email"><small>Email</small><small style= "color:red"> *</small></label>
+
+  {{form.email}}  
+  </div></div></div>
+  <div class="row form-group">
+
+  <div class="form-group first">
+    <label for="password"><small>Password</small><small style= "color:red"> *</small></label>
+    {{form.password1}}
+    </div>
+    <div class="col">
+<div class="form-group last mb-4">
+<label for="password"><small>Confirm Password</small><small style= "color:red"> *</small></label>
+{{form.password2}}
+</div>
+</div></div>
+        <div class="row form-group">
+    <div class="form-group last mb-4">
+        <label for="phone"><small>Phone</small><small style= "color:red"> *</small></label>
+        {{profile.phone}}
+        </div>
+        <div class="col">
+        <div class="form-group last mb-4">
+                    <label for="CIN"><small>CIN</small></label>
+                    {{profile.CIN}}
+                    </div></div></div>
+                    <div class="row ">
+
+        <div class="form-group last mb-4">
+            <label for="appartment"><small>appartment</small><small style= "color:red"> *</small></small></label>
+            {{profile.appartment}}
+            </div>
+            <div class="col">
+            <div class="form-group last mb-4">
+                <label for="parking_spot"><small>Parking</small><small style= "color:red"> *</small></label>
+                {{profile.parking_spot}}
+            </div>
+            <div class="form-group last mb-4">
+                <label for="image"></label>
+                {{profile.image}}
+            </div>
+        </div></div>
+                
+
+
+
+<div class="d-flex mb-5 align-items-center">
+<label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+<input type="checkbox" checked="checked" />
+<div class="control__indicator"></div>
+</label>
+<span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+</div>
+
+<input type="submit" value="Log In" class="btn btn-block btn-primary">
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="{% static 'js/authentication/popper.min.js' %}"></script>
+<script src="{% static 'js/authentication/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/authentication/register.js' %}"></script>
+<script src="{% static 'js/authentication/jquery-3.3.1.min.js' %}"></script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79d04ec14c1b076f","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div class="menu">
+    <h3>
+        User Account
+      
+    </h3>
+    <ul>
+        <li>
+            <span class="material-icons icons-size" style="color: white;">person</span>
+            <a href="{% url 'profile'%}">My Profile</a>
+        </li>
+        <li>
+            <span class="material-icons icons-size"style="color: white;">mode</span>
+            <a href="{% url 'edit_profile'%}">Edit Account</a>
+        </li>
+        <li>
+            <span class="material-icons icons-size"style="color: white;">insert_comment</span>
+            <a href="#">Comments</a>
+        </li>
+        <li>
+            <span class="material-icons icons-size"style="color: white;">monetization_on</span>
+            <a href="#">Budget</a>
+        </li>
+        <li>
+            <span class="material-icons icons-size"style="color: white;">account_balance</span>
+            <a href="#">Finance</a>
+        </li>
+        <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+        <li>
+            <span class="material-icons icons-size"style="color: white;"><i class="fa fa-sign-out"></i></span>
+            <button class="btn btn--radius-2 btn--red submit-btn" type="submit" style="color:white;font-size: 14px;font-weight: 600;text-transform: uppercase;">LOGOUT</button>
+        </form>
+        </li>
+    </ul>
+</div>
+</div>
