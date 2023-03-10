@@ -94,9 +94,9 @@ WSGI_APPLICATION = 'Syndic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'  : 'django.db.backends.mysql', 
-        'NAME'    : 'DjangoDB',                 
-        'USER'    : 'root',                    
-        'PASSWORD': 'syndicDB',             
+        'NAME'    : '******',                 
+        'USER'    : '******',                    
+        'PASSWORD': '*****',             
         'HOST'    : 'localhost',               
         'PORT'    : '3306',
     }
@@ -156,6 +156,6 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
 }
 
-TWILIO_ACCOUNT_SID = 'AC91dcce99836434151f6893f7f2e14890'
-TWILIO_AUTH_TOKEN = 'b2d29a941478abdf664325ff564d8804'
-TWILIO_PHONE_NUMBER = '+12763294190'
+TWILIO_ACCOUNT_SID = '************'
+TWILIO_AUTH_TOKEN = '*************'
+TWILIO_PHONE_NUMBER = '+12345678'
