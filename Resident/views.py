@@ -4,6 +4,11 @@ from django.contrib.auth.decorators import login_required
 from .models import contact
 from authentication.models import profile
 from django.contrib import messages
+from .models import TravauxPAyment,SendMail
+from django.contrib.auth.models import User
+from django.shortcuts import render, HttpResponse
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
 
 @login_required
 def home(request):

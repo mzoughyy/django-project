@@ -25,11 +25,13 @@ class UserProfileForm(ModelForm):
 
     class Meta:
         model = profile
-        fields = ('CIN','phone','appartment','parking_spot','image')
+        fields = ('CIN','phone','appartment','parking_spot','second_parking','image')
         widgets = {
             'CIN':forms.NumberInput(attrs={'class':'form-control'}),
             'appartment':forms.Select(attrs={'class':'form-control form-group','width':'500px',"placeholder":"apprtmentS",'style': 'width:230px'}),
             'parking_spot':forms.Select(attrs={'class':'form-control form-group','style': 'width:230px'}),
+            'second_parking':forms.Select(attrs={'class':'form-control hidden form-group','id':'input-field','style': 'width:230px'}),
+
             'image':forms.FileInput(attrs={'class':'form-group','style': 'width:230px'}),
 
 
@@ -59,3 +61,7 @@ class UpdateProfileForm(ModelForm):
 
         }
 
+class EmailForm(forms.Form):
+    subject = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Subject","class":"form-control"}))   
+    message = forms.CharField(widget=forms.Textarea(attrs={"placeholder":"Message","class":"form-control"}))    
+ 

@@ -1,0 +1,19 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+<center>
+  <h1>Send Email To All Residents</h1>
+</center>
+  <br><br>
+  <form method="post">
+    {% csrf_token %}
+    <br><br>
+    <br><br>
+<label for="subject">Subject</label>
+    {{ form.subject }}
+    <label for="message">Message</label>
+
+    {{ form.message }}
+    <br>
+    <button class="btn btn-primary" type="submit">Send</button>
+  </form>
+{% endblock %}

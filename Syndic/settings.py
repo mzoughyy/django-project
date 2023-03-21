@@ -34,11 +34,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 JAZZMIN_SETTINGS = {
-     "site_title": "Admin Dashbord",
-     "site_header": "Syndic",
+    "site_title": "Admin Dashbord",
+    "site_header": "Admin Dashbord",
+    "site_brand": "Admin Dashbord",
+    "site_icon": "img/logo_site.png",
+    "site_logo":"img/logo_site.png",
      "login_logo": "img/logo_site.png",
      "login_logo_classes": "img-circle",
       "welcome_sign": "Welcome Admin",
+      "show_sidebar": True,
+      "navigation_expanded": True,
+
+
 
 
 }
@@ -54,6 +61,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'multiselectfield',
+     'channels',
+     
 ]
 
 MIDDLEWARE = [
@@ -101,6 +111,11 @@ DATABASES = {
         'PORT'    : '3306',
     }
 }
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER="aminelaymoun@gmail.com"
+EMAIL_HOST_PASSWORD = 'btahblcepdvbpepy'
+EMAIL_USE_TLS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -159,3 +174,4 @@ MESSAGE_TAGS = {
 TWILIO_ACCOUNT_SID = 'AC91dcce99836434151f6893f7f2e14890'
 TWILIO_AUTH_TOKEN = 'b2d29a941478abdf664325ff564d8804'
 TWILIO_PHONE_NUMBER = '+12763294190'
+

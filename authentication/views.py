@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm,UserChangeForm
 from django.contrib import messages
-from .forms import UserRegisterForm,UserProfileForm,UserUpdateForm,UpdateProfileForm
+from .forms import UserRegisterForm,UserProfileForm,UserUpdateForm,UpdateProfileForm,EmailForm
 from django.contrib.auth import logout
 from django.contrib import auth
 from django.views import View
@@ -17,10 +17,8 @@ from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.urls import reverse
 from .utils  import send_sms
-
-from django.conf import settings
-from django.http import JsonResponse
-from twilio.rest import Client
+from Resident.models import TravauxPAyment
+from django.core.mail import send_mail
 
 def register(request):
     if request.method == 'POST':
@@ -35,7 +33,7 @@ def register(request):
             profil.save()
             
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account created successfully')
+            messages.success(request, 'Account created successfully, Please wait for the admin to activate your account')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -75,3 +73,23 @@ def send_sms_view(request):
     else:
         users = User.objects.all()
         return render(request, 'send_sms.html', {'users': users})
+    
+def send_mail_view(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            send_mail(
+                subject,
+                message,
+                'aminelaymoun@gmail.com',
+                [user.email for user in User.objects.filter(is_active=True)],
+                fail_silently=False
+            )
+            return redirect(reverse('admin:auth_user_changelist'))
+    else:
+        form = EmailForm()
+    return render(request, 'admin/send_email.html', {'form': form})
+def send_email_admin(request):
+    return redirect('send_email')

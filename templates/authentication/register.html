@@ -14,6 +14,107 @@
 
 <link rel="stylesheet" href="{% static 'css/authentication/register.css' %}">
 <title>Login #7</title>
+<style>
+
+    .hidden {
+        display: none;
+      }
+      .icon-btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #cdcdcd;
+        background: white;
+        border-radius: 25px;
+        overflow: hidden;
+        position: absolute;
+        transition: width 0.2s ease-in-out;
+        font-weight: 500;
+        font-family: inherit;
+      }
+      
+      .add-btn:hover {
+        width: 200px;
+      }
+      
+      .add-btn::before,
+      .add-btn::after {
+        transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 10px;
+        top: calc(50% - 2px);
+        background: #6c63ff;
+      }
+      
+      .add-btn::after {
+        right: 14px;
+        overflow: hidden;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+      
+      .add-btn::before {
+        left: 14px;
+        border-top-left-radius: 1px;
+        border-bottom-left-radius: 2px;
+      }
+      
+      .icon-btn:focus {
+        outline: none;
+      }
+      
+      .btn-txt {
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      
+      .add-btn:hover::before,
+      .add-btn:hover::after {
+        width: 4px;
+        border-radius: 2px;
+      }
+      
+      .add-btn:hover .btn-txt {
+        opacity: 1;
+      }
+      
+      .add-icon::after,
+      .add-icon::before {
+        transition: all 0.2s ease-in-out;
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 2px;
+        top: calc(50% - 10px);
+        background: #6c63ff;
+        overflow: hidden;
+      }
+      
+      .add-icon::before {
+        left: 13px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+      
+      .add-icon::after {
+        right: 13px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+      
+      .add-btn:hover .add-icon::before {
+        left: 15px;
+        height: 4px;
+        top: calc(50% - 2px);
+      }
+      
+      .add-btn:hover .add-icon::after {
+        right: 15px;
+        height: 4px;
+        top: calc(50% - 2px);
+      }
+</style>
 <script nonce="1b943b87-80ca-4001-90fc-0a1aaa524b2c">(function(w,d){!function(f,g,h,i){f[h]=f[h]||{};f[h].executed=[];f.zaraz={deferred:[],listeners:[]};f.zaraz.q=[];f.zaraz._f=function(j){return function(){var k=Array.prototype.slice.call(arguments);f.zaraz.q.push({m:j,a:k})}};for(const l of["track","set","debug"])f.zaraz[l]=f.zaraz._f(l);f.zaraz.init=()=>{var m=g.getElementsByTagName(i)[0],n=g.createElement(i),o=g.getElementsByTagName("title")[0];o&&(f[h].t=g.getElementsByTagName("title")[0].text);f[h].x=Math.random();f[h].w=f.screen.width;f[h].h=f.screen.height;f[h].j=f.innerHeight;f[h].e=f.innerWidth;f[h].l=f.location.href;f[h].r=g.referrer;f[h].k=f.screen.colorDepth;f[h].n=g.characterSet;f[h].o=(new Date).getTimezoneOffset();if(f.dataLayer)for(const s of Object.entries(Object.entries(dataLayer).reduce(((t,u)=>({...t[1],...u[1]})))))zaraz.set(s[0],s[1],{scope:"page"});f[h].q=[];for(;f.zaraz.q.length;){const v=f.zaraz.q.shift();f[h].q.push(v)}n.defer=!0;for(const w of[localStorage,sessionStorage])Object.keys(w||{}).filter((y=>y.startsWith("_zaraz_"))).forEach((x=>{try{f[h]["z_"+x.slice(7)]=JSON.parse(w.getItem(x))}catch{f[h]["z_"+x.slice(7)]=w.getItem(x)}}));n.referrerPolicy="origin";n.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(f[h])));m.parentNode.insertBefore(n,m)};["complete","interactive"].includes(g.readyState)?zaraz.init():f.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
 <body>
    
@@ -81,23 +182,30 @@
                     <label for="CIN"><small>CIN</small></label>
                     {{profile.CIN}}
                     </div></div></div>
-                    <div class="row ">
+                    <div class="row form-group">
 
         <div class="form-group last mb-4">
             <label for="appartment"><small>appartment</small><small style= "color:red"> *</small></small></label>
             {{profile.appartment}}
             </div>
             <div class="col">
-            <div class="form-group last mb-4">
-                <label for="parking_spot"><small>Parking</small><small style= "color:red"> *</small></label>
-                {{profile.parking_spot}}
-            </div>
+                <div class="form-group last mb-4">
+                            <label for="parking_spot"><small>Parking Spot</small><small style= "color:red"> *</small></label>
+                            {{profile.parking_spot}}
+                            {{profile.second_parking}}
+                            <button class="icon-btn add-btn" id="show-input-btn">
+                                <div class="add-icon"></div>
+                                <div class="btn-txt">add a parking spot</div>
+                            </button>
+                            </div></div></div>
+              
+            
             <div class="form-group last mb-4">
                 <label for="image"></label>
                 {{profile.image}}
             </div>
-        </div></div>
-                
+  
+      
 
 
 
@@ -118,6 +226,15 @@
 </div>
 </div>
 </div></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var inputField = document.getElementById('input-field');
+    var showInputBtn = document.getElementById('show-input-btn');
+    
+    showInputBtn.addEventListener('click', function() {
+      inputField.classList.remove('hidden');
+    });
+  });</script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="{% static 'js/authentication/popper.min.js' %}"></script>
 <script src="{% static 'js/authentication/bootstrap.min.js' %}"></script>

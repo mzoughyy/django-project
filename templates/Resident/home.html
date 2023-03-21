@@ -28,6 +28,59 @@
   }
 
 </style>
+<style>
+  .dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown1 {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown1-content {
+    display: none;
+    position: absolute;
+    right: 20;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 20px !important;
+  }
+  
+  .dropdown1-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown1-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown1:hover .dropdown1-content {
+    display: block;
+  }
+  ul {
+    list-style-type : none;
+  }
+  .notification {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    display: inline-block;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 0px 5px;
+    border-radius: 40%;
+}
+
+  </style>
 </head>
 <body>
 <div class="wrapper d-flex align-items-stretch">
@@ -60,21 +113,34 @@
 
 <div id="content" class="p-4 p-md-5">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<div class="container-fluid">
-<button type="button" id="sidebarCollapse" class="btn btn-primary">
+  <ul class="nav navbar-nav">
+<div class="container-fluid" >
+<li class="nav-item"><button type="button" id="sidebarCollapse" class="btn btn-primary" style="top:10" >
   <i class="fa fa-bars"></i>
   <span class="sr-only">Toggle Menu</span>
 </button>
 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <i class='fas fa-chevron-left'></i>
   </button>
+  </li>
+  <li class="nav-item">
   <div class="action">
-    <div class="profile" onclick="menuToggle();">
+ 
+    <div class="profile" onclick="menuToggle();" style="top:10">
         <img src="{{ user.profile.image.url }}" class="avatar">
     </div>
 {% include "partials/_dropdown.html" %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
 </div>
+</li>
+<li class="nav-item ">
+  <div class="dropdown1" style="left:1500;top:-10">
+    <a class="dropbtn"><i class="fa fa-bell" style="font-size:24px;color:rgb(87, 70, 243)"></i><span class="notification"></span></a>
+    <div class="dropdown1-content" style="left:-150;top:30">
+
+    </div>
+  </div>
+  </li>
 </nav>
 <div class="row">
   <div class="col-lg-8 mb-4 order-0">
@@ -110,10 +176,14 @@
           {% else %}
           <p class="mb-1">{{user.profile.credit}}&nbsp;DT</p>
           {% endif %}
-  </div>
-  </div>
 
-<script>
+  </div>
+  </div>
+   </div>
+  
+
+  
+  <script>
 
   var button = document.getElementById("sidebarCollapse");
   var text = document.getElementById("MyHeading");
