@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from authentication.models import profile,Fournisseurs
+from authentication.models import profile,Fournisseurs,Appartment
 from django.utils import timezone
 class contact(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -22,6 +22,7 @@ class TravauxPAyment(models.Model):
 class Creditpayment(models.Model):
     class Meta:
         verbose_name = 'Credit Payment'
+    Appartment = models.ForeignKey(Appartment,on_delete=models.CASCADE,null=True)
     profile = models.ForeignKey(profile,on_delete=models.CASCADE,null=True)
     payment=models.IntegerField(null=True)
     recu=models.FileField(null=True,upload_to='recu/')

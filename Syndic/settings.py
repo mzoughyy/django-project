@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
      'multiselectfield',
      'channels',
+
      
 ]
 
@@ -96,7 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Syndic.wsgi.application'
-
+ASGI_APPLICATION = 'Syndic.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

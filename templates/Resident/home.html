@@ -2,7 +2,7 @@
 {% load i18n %}
 <html lang="en">
 <head>
-<title>Syndic - Client</title>
+<title>Smart Living - Client</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -88,7 +88,7 @@
   <div class="aligned">
     <h1><a href="{% url 'Resident'%}" class="logo">
       <img src="{% static 'img/logo.png' %}" class="avatar"></a></h1>
-    <h5 id="MyHeading" style="display:none;color:white">E-Syndic</h5>
+    <h5 id="MyHeading" style="display:none;color:white">Smart Living</h5>
   </div>
 <ul class="list-unstyled components mb-5">
 <li class="active">
@@ -101,8 +101,8 @@
 <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
 </li>
 <li>
-<a href="#"><span class="fa fa-cogs"></span> Services</a>
-</li>
+  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
+
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
 </li>
@@ -159,30 +159,33 @@
     <img src="{% static 'img/man.png' %}" alt=""  class="man">
 </div></div>
 </div>
+
 {% include "partials/_calender.html" %}
   </div>
+  
   <br><br>
-  <div class="card5">
-    <br>
-    <div class="card-title d-flex align-items-start justify-content-between">
-    <div class="d-flex align-items-end row">
-    <div class="col-sm-7">
-      <img src="{% static 'img/wallet.png' %}" width="50">
-    <div class="card-body">
-     
-      <h5 style="color: #2596be;">Credit</h5>
+
+  
+   <div class="container">
+    <div class="card5">
+      <br>
+      <h4 style="color: #2596be;"><img src="{% static 'img/wallet.png' %}" width="40">&nbsp;&nbsp;Credit</h4>
       {% if user.profile.credit == 0 %}
           <p class="mb-1"> you&nbsp;have&nbsp;no&nbsp;debt</p>
           {% else %}
-          <p class="mb-1">{{user.profile.credit}}&nbsp;DT</p>
+          <br>
+          <a class="mb-1">&nbsp;&nbsp;&nbsp;{{user.profile.credit}}&nbsp;DT</a>
           {% endif %}
-
+    </div>
+    <div class="card6">
+      <br>
+      <h4 style="color: #69056e;"><img src="{% static 'img/home.png' %}" width="40">&nbsp;&nbsp;Travaux</h4>
+      <br>
+        <a href="{% url 'travaux' %}" style="color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consulter les Travaux ici.</a>        
+    </div>
   </div>
-  </div>
-   </div>
   
 
-  
   <script>
 
   var button = document.getElementById("sidebarCollapse");

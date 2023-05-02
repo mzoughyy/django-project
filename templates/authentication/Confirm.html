@@ -1,0 +1,51 @@
+
+{% load static %}
+{% load i18n %}
+<html lang="en">
+<head>
+<title>Smart Living - Client</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<style id="" media="all">/* devanagari */
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/_sideBar/_sideBar.css' %}">
+
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+  <br><br>
+  <br><br>
+  <br><br>
+  <br><br>
+ 
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-8 mb-4 order-0">
+  <div class="card8">
+    <br>
+    <div class="card-title d-flex align-items-start justify-content-between">
+    <div class="d-flex align-items-end row">
+    <div class="col-sm-7">
+    <div class="card-body">
+       
+<h3>Password reset</h3>
+ <p>Forgotten your password? Enter your email address
+ below, and we'll email instructions for setting a new
+one.</p>
+<center>
+ <form method="post">
+     {% csrf_token %}
+     {{form}}
+     <input type="Submit" class="submit" name="Send email">
+ </form>
+</center>
+</div>
+</div>
+</div>
+</body>

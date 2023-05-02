@@ -2,7 +2,7 @@
 {% block content %}
 <html lang="en">
 <head>
-<title>Syndic - Client</title>
+<title>Smart Living - Client</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -36,7 +36,7 @@
 <nav id="sidebar" class="active">
   <div class="aligned">
     <h1><a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" class="avatar"></a></h1>
-    <h5 id="MyHeading" style="display:none;color:white">E-Syndic</h5>
+    <h5 id="MyHeading" style="display:none;color:white">Smart Living</h5>
   </div>
 <ul class="list-unstyled components mb-5">
 <li class="active">
@@ -49,8 +49,8 @@
 <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
 </li>
 <li>
-<a href=""><span class="fa fa-user"></span> profile</a>
-</li>
+  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
+
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
 </li>

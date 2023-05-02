@@ -21,7 +21,7 @@ class profile(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return self.user.first_name         
 
     def populate_appartment_choices(self):
         APP_CHOICES = []
@@ -79,6 +79,11 @@ class Appartment(models.Model):
     User=models.ForeignKey(User,on_delete=models.CASCADE)
     name=models.CharField(max_length=255)
     number=models.IntegerField()
+STATUS = [
+    ("Done", "Done"),
+    ("Pending", "Pending"),
+
+]
 class Fournisseurs(models.Model):
     class Meta:
         verbose_name='Fournisseur'
@@ -87,5 +92,7 @@ class Fournisseurs(models.Model):
     frais=models.IntegerField(null=True)
     date=models.DateTimeField(default=timezone.now)
     contract=models.FileField(upload_to="Fournisseur_Contracts")
+    status = models.CharField(max_length=250,choices=STATUS,default="AS")
+
     def __str__(self):
         return self.travaux_type
