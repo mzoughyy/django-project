@@ -2,7 +2,7 @@
 {% load i18n %}
 <html lang="en">
 <head>
-<title>Smart Living - Client</title>
+<title>Smart Living - Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -98,14 +98,18 @@
   <a href="{% url 'profile'%}"><span class="fa fa-user"></span> Profile</a>
 </li>
 <li>
-<a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+  <a href="{% url 'index' %}"><span class="fa fa-comments-o"></span> Chat</a>
 </li>
 <li>
-  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
+  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span>Constructions</a></li>
 
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
 </li>
+<li>
+  <a href="{% url 'view_payments' %}"><span class="fa fa-usd"></span> Payments</a>
+  </li>
+
 </ul>
 <div class="footer">
 </div>
@@ -126,21 +130,13 @@
   <li class="nav-item">
   <div class="action">
  
-    <div class="profile" onclick="menuToggle();" style="top:10">
+    <div class="profile" onclick="menuToggle();" >
         <img src="{{ user.profile.image.url }}" class="avatar">
     </div>
 {% include "partials/_dropdown.html" %}
     <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
 </div>
 </li>
-<li class="nav-item ">
-  <div class="dropdown1" style="left:1500;top:-10">
-    <a class="dropbtn"><i class="fa fa-bell" style="font-size:24px;color:rgb(87, 70, 243)"></i><span class="notification"></span></a>
-    <div class="dropdown1-content" style="left:-150;top:30">
-
-    </div>
-  </div>
-  </li>
 </nav>
 <div class="row">
   <div class="col-lg-8 mb-4 order-0">
@@ -150,8 +146,8 @@
   <div class="d-flex align-items-end row">
   <div class="col-sm-7">
   <div class="card-body">
-      <h5 class="card-title text-primary">Bonjour {{request.user.first_name}} {{request.user.last_name}} !</h5>
-  <p class="mb-4"> Vérifiez vos informations de résidence et de facturation ici.</p>
+      <h5 class="card-title text-primary">Welcome {{request.user.first_name}} {{request.user.last_name}} !</h5>
+  <p class="mb-4"> Your Dahsbord.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 </div>
 </div>
 <div class="col-sm-5 text-center text-sm-left">
@@ -169,7 +165,7 @@
    <div class="container">
     <div class="card5">
       <br>
-      <h4 style="color: #2596be;"><img src="{% static 'img/wallet.png' %}" width="40">&nbsp;&nbsp;Credit</h4>
+      <h4 style="color: #2596be;"><img src="{% static 'img/wallet.png' %}" width="40">&nbsp;&nbsp;Debt</h4>
       {% if user.profile.credit == 0 %}
           <p class="mb-1"> you&nbsp;have&nbsp;no&nbsp;debt</p>
           {% else %}
@@ -179,12 +175,23 @@
     </div>
     <div class="card6">
       <br>
-      <h4 style="color: #69056e;"><img src="{% static 'img/home.png' %}" width="40">&nbsp;&nbsp;Travaux</h4>
+      <h4 style="color: #69056e;"><img src="{% static 'img/home.png' %}" width="40">&nbsp;&nbsp;Constructions</h4>
       <br>
-        <a href="{% url 'travaux' %}" style="color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consulter les Travaux ici.</a>        
+        <a href="{% url 'travaux' %}" style="color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View The Constructions Here.</a>        
     </div>
   </div>
+  <br><br>
+  <center>
+  <div class="card6">
+    <br>
+    <h4 style="color: #db7938;"><img src="{% static 'img/chat.png' %}" width="40">&nbsp;&nbsp;Contact</h4>
+    <br>
+      <a href="{% url 'contact' %}" style="color:gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact Us Here.</a>        
+  </div>
   
+</div>
+
+
 
   <script>
 

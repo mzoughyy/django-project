@@ -75,7 +75,6 @@ class FourAdmin(admin.ModelAdmin):
         qs = qs.order_by('-date')  # Order by is_active field (inactive first)
         return qs
 
-    
 admin.site.register(Fournisseurs,FourAdmin) 
 admin.site.register(Appartment,AppAdmin)
 admin.site.register(personel, personelAdmin)

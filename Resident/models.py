@@ -7,13 +7,15 @@ class contact(models.Model):
     subject = models.TextField()
     message = models.TextField()
     sent_at = models.DateTimeField(default=timezone.now)
+    image=models.FileField(null=True,upload_to='img/reclamation')
+
     def __str__(self):
         return self.user.username
 class TravauxPAyment(models.Model):
     class Meta:
         verbose_name = 'Travaux Payment'
 
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    profile = models.ForeignKey(profile,on_delete=models.CASCADE,null=True)
     traveaux = models.ForeignKey(Fournisseurs,on_delete=models.CASCADE,null=True)
     payment=models.IntegerField(null=True)
     recu=models.FileField(null=True,upload_to='recu/')
@@ -31,6 +33,7 @@ class Creditpayment(models.Model):
         self.profile.credit -= self.payment
         self.profile.save()
         super().save(*args, **kwargs)
+        
 class SendMail(models.Model):
     recipient = models.ManyToManyField(User)
     subject = models.CharField(max_length=100)
@@ -38,3 +41,9 @@ class SendMail(models.Model):
     sent_at = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.subject
+class EmailUs(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.TextField()
+    sent_at = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return self.name

@@ -13,16 +13,20 @@
             <a href="{% url 'edit_profile'%}">Edit Account</a>
         </li>
         <li>
-            <span class="material-icons icons-size"style="color: white;">insert_comment</span>
+            <span class="fa fa-paper-plane"style="color: white;"></span>
             <a href="{% url 'contact' %}">CONTACT</a>
         </li>
         <li>
-            <span class="fa fa-exclamation-triangle"style="color: white;"></span>
-            <a href="{% url 'travaux' %}">TRAVAUX</a>
+            <span class="fa fa-comments-o" style="color: white;"></span>
+            <a href="{% url 'profile'%}">CHAT</a>
         </li>
         <li>
-            <span class="material-icons icons-size"style="color: white;">account_balance</span>
-            <a href="#">Finance</a>
+            <span class="fa fa-exclamation-triangle"style="color: white;"></span>
+            <a href="{% url 'travaux' %}">CONSTRUCTIONS</a>
+        </li>
+        <li>
+            <span class="fa fa-usd"style="color: white;"></span>
+            <a href="{% url 'view_payments' %}">PAYMENTS</a>
         </li>
         <form action="{% url 'logout' %}" method="POST">
             {% csrf_token %}

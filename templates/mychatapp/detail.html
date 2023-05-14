@@ -1,0 +1,282 @@
+{% load static %}
+<html lang="en">
+<head>
+<title>Smart Living - {{ recipient.username }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<style id="" media="all">/* devanagari */
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/_sideBar/_sideBar.css' %}">
+
+<meta name="robots" content="noindex, follow">
+<style>
+  .aligned {
+      display: flex;
+      align-items: center;
+  }
+    
+  span {
+      padding: 10px;
+  }
+  img{
+    margin-left: 17px;
+  }
+  * {
+    font-family: 'Avenir';
+  }
+  #chat-window {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    height: 400px;
+    overflow: scroll;
+  }
+  
+  .chat-bubble-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-bubble {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    max-width: 70%;
+  }
+  
+  .chat-bubble-left {
+    align-self: flex-start;
+    background-color:#0d599d;
+   
+  }
+  
+  .chat-bubble-right {
+    align-self: flex-end;
+  }
+  
+  .message-time {
+    font-size: 0.7em;
+    color: #999;
+    margin-left: 10px;
+  }
+  button {
+    font-family: inherit;
+    font-size: 20px;
+    background: royalblue;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    height:50px;
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  button:hover span {
+    transform: translateX(5em);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+    
+  </style>
+</head>
+<body>
+<div class="wrapper d-flex align-items-stretch">
+<nav id="sidebar" class="active">
+  <div class="aligned">
+    <h1><a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" class="avatar"></a></h1>
+    <h5 id="MyHeading" style="display:none;color:white">Smart Living</h5>
+  </div>
+<ul class="list-unstyled components mb-5">
+<li class="active">
+<a href="{% url 'Resident'%}"><span class="fa fa-home"></span> Home</a>
+</li>
+<li>
+  <a href="{% url 'profile'%}"><span class="fa fa-user"></span> Profile</a>
+</li>
+<li>
+  <a href="{% url 'index' %}"><span class="fa fa-comments-o"></span> Chat</a>
+</li>
+<li>
+  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Construction</a></li>
+
+<li>
+<a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
+</li>
+<li>
+  <a href="{% url 'view_payments' %}"><span class="fa fa-usd"></span> Payments</a>
+  </li>
+
+</ul>
+<div class="footer">
+</div>
+</nav>
+
+<div id="content" class="p-4 p-md-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+<button type="button" id="sidebarCollapse" class="btn btn-primary">
+  <i class="fa fa-bars"></i>
+  <span class="sr-only">Toggle Menu</span>
+</button>
+<button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <i class='fas fa-chevron-left'></i>
+  </button>
+  <div class="action">
+    <div class="profile" onclick="menuToggle();">
+        <img src="{{ user.profile.image.url }}" class="avatar" alt="">
+    </div>
+{% include "partials/_dropdown.html" %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+</div>
+</nav>
+<div class="row">
+  <div class="col-lg-8 mb-4 order-0">
+<div class="card1">
+  <br>
+  <div class="card-title d-flex align-items-start justify-content-between">
+  <div class="d-flex align-items-end row">
+  <div class="col-sm-7">
+  <div class="card-body">
+      <h4 class="card-title text-primary"> Chatting With : <h4 style="color:#422c1f">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ recipient.username }}</h4></h4>
+  <p class="mb-4"> </p>
+</div>
+</div>
+<div class="col-sm-5 text-center text-sm-left">
+  <div class="card-body pb-0 px-0 px-md-4">
+    <img src="{% static 'img/chatting.png' %}" alt=""  class="man1">
+</div></div>
+</div>
+{% include "partials/_calender.html" %}
+
+</div>
+<br><br>
+
+<div id="chat-window" class="card10">
+  
+    <div class="chat-bubble-container">
+      {% for chat in chats %}
+        {% if chat.msg_sender == user %}
+          <div class="chat-bubble chat-bubble-left">
+            <span class="message" style="color:white">{{ chat.body }}</span>
+            <span class="message-time">{{ chat.created_at|date:"F j, Y, g:i a" }}</span>
+          </div>
+        {% else %}
+          <div class="chat-bubble chat-bubble-right">
+            <span class="message">{{ chat.body }}</span>
+            <span class="message-time">{{ chat.created_at|date:"F j, Y, g:i a" }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  <br>
+    <div id="chat-form">
+      <form id="send-message-form" method="POST" action="{% url 'sent_msg' selected_profile.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+                </svg>
+              </div>
+            </div>
+            <span>Send</span>
+          </button>            </div>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    const chatWindow = document.querySelector('#chat-window');
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    const form = document.querySelector('#send-message-form');
+    const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const input = document.querySelector('#id_body');
+      const message = input.value.trim();
+      if (message) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRFToken', csrfToken);
+        xhr.onload = () => {
+          input.value = '';
+          input.focus();
+        };
+        xhr.send(JSON.stringify({msg: message}));
+      }
+    });  </script>
+  <script>
+  
+
+    var button = document.getElementById("sidebarCollapse");
+    var text = document.getElementById("MyHeading");
+    button.addEventListener("click", function() {
+      if (text.style.display === "none") {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    });
+    function menuToggle(){
+      const toggleMenu = document.querySelector('.menu');
+      toggleMenu.classList.toggle('active')
+  }
+  </script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"799f7649ffeebaf7","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}' crossorigin="anonymous"></script>
+  </body>
+  </html>
+
+

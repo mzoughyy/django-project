@@ -2,7 +2,7 @@
 {% block content %}
 <html lang="en">
 <head>
-<title>Smart Living - Client</title>
+<title>Smart Living - Profiel</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
@@ -46,14 +46,18 @@
 <a href="{% url 'profile'%}"><span class="fa fa-user"></span> Profile</a>
 </li>
 <li>
-<a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+  <a href="{% url 'index' %}"><span class="fa fa-comments-o"></span> Chat</a>
 </li>
 <li>
-  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
+  <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span>Construction</a></li>
 
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
 </li>
+<li>
+  <a href="{% url 'view_payments' %}"><span class="fa fa-usd"></span> Payments</a>
+  </li>
+
 </ul>
 <div class="footer">
 </div>
@@ -86,7 +90,8 @@
   <div class="col-sm-7">
   <div class="card-body">
       <h5 class="card-title text-primary"> Profile</h5>
-  <p class="mb-4">Consulter vos informations ici.</p>
+  <p class="mb-4">
+    View Your Information Here.</p>
 </div>
 </div>
 <div class="col-sm-5 text-center text-sm-left">
@@ -101,7 +106,7 @@
 <center>
 <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-lg-6 mb-4 mb-lg-0">
+        <div class="col col-lg-9 mb-5 mb-lg-0">
           <div class="card4" >
             <div class="row g-0">
               <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
@@ -115,7 +120,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h6>Resident Information</h6>
+                  <h6>Your Informations</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
@@ -139,7 +144,7 @@
                     </div>
                     
                   </div>
-                  <h6>Residental informations</h6>
+                  <h6>Residental Informations</h6>
                   <hr class="mt-0 mb-4">
                   <div class="row pt-1">
                     <div class="col-6 mb-3">
@@ -152,13 +157,23 @@
                     </div>
                     
                   </div>
+                  <div class="button-container">
                  <a href="{% url 'edit_profile'%}"> <button class="button1">
                     <span class="label">Edit Profile</span>
                     <span class="icon">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
                     </span>
                   </button></a>
+                  <a href="{% url 'change_password'%}"> <button class="button2">
+                    <span class="label">Change Password</span>
+                    <span class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+                    </span>
+                  </button></a>
                                 </div>
+                              </div>
+
+                              
                 </div>
               </div>
             </div>

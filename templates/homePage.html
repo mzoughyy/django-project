@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Smart Living</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/homePage.css' %}" rel="stylesheet">
+  
+
+<style>
+  figure.zoom {
+    background-position: 50% 50%;
+    position: relative;
+    width: 550px;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  figure.zoom img:hover {
+    opacity: 0;
+  }
+  figure.zoom img {
+    transition: opacity .5s;
+    display: block;
+    width: 100%;
+  }
+  .card1 {
+    width: 650px;
+    height: 300px;
+    border-radius: 20px !important;
+    background: #ffffff;
+  }
+  button {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 0.8em 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  }
+  
+  button svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+  
+  button .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+  
+  button:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button:hover svg {
+    transform: rotate(45deg);
+  }
+  
+  
+  
+</style>  
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center" style="color:black"><a href="mailto:contact@example.com">
+          smartlivingservice@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4" style="color:black"><span>+216 51 752 552</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://twitter.com/Amine08331686"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/eat.shit24"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/mzoughy.jpg/"><i class="bi bi-instagram"></i></a>
+        <a href="linkedin.com/in/amine-mzoughy/"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </section><!-- End Top Bar-->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+      <div id="logo">
+        <h1 style="color:black"><a href="index.html">Smart<span style="color:black">Living</span></a></h1>
+
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li class="dropdown"><a href="#"><span>Sign In</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'admin:index' %}">Admin</a></li>
+            
+               
+              </li>
+              <li><a href="{% url 'login' %}">Resident</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= hero Section ======= -->
+  <section id="hero">
+
+    <div class="hero-content" data-aos="fade-up">
+      <h2>Making <span style="color:black">your living experience</span><br>Better!</h2>
+      <div>
+        
+      </div>
+    </div>
+
+    <div class="hero-slider swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('{% static 'img/tunis2.jpg' %}');"></div>
+        <div class="swiper-slide" style="background-image: url('{% static 'img/tunis.jpg' %}');"></div>
+        <div class="swiper-slide" style="background-image: url('assets/img/hero-carousel/3.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('assets/img/hero-carousel/4.jpg');"></div>
+        <div class="swiper-slide" style="background-image: url('assets/img/hero-carousel/5.jpg');"></div>
+      </div>
+    </div>
+
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6 about-img">
+            <img src="{% static 'img/pc.png' %}" alt="">
+          </div>
+
+          <div class="col-lg-6 content">
+            <h2>Smart Living is a unique service in Tunisia</h2>
+            <h3>that aims to facilitate the living experience for both residents and owners. By utilizing technology, Smart Living provides a comprehensive solution for managing apartments and offering a range of services to tenants, such as maintenance, cleaning, and concierge services. The platform also enables apartment owners to manage their properties remotely, making the process more efficient and convenient. Overall, Smart Living provides a valuable solution for those looking to improve their living experience in Tunisia.</h3>
+
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>Smart Living provides a range of services for both owners and residents</p>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="box">
+              <div class="icon"><img src="{% static 'img/bill.png' %}" width="100" class="imag1"></div>
+              <h4 class="title"><a href="">Keeping Track on Payments</a></h4>
+              <p class="description">We offer the chance for residents to keep track on their payments.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <div class="icon"><img src="{% static 'img/building.png' %}" width="80" class="imag1"></i></div>
+              <h4 class="title"><a href="">Keeping Track on Constructions</a></h4>
+              <p class="description">We offer the chance to stay notified on pending and done constructions. </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <div class="icon"><img src="{% static 'img/comm.png' %}" width="70" class="imag1"></div>
+              <h4 class="title"><a href="">Communications</a></h4>
+              <p class="description">We offer the opportuinity for residents to communicate between each other.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="box">
+              <div class="icon"><img src="{% static 'img/company.png' %}" width="80" class="imag1"></div>
+              <h4 class="title"><a href="">Appartement Managing</a></h4>
+              <p class="description">We offer the solution for the owners to manage the appartement and all things that releate to it easier.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our Portfolio</h2>
+          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        </div>
+      </section>
+
+      <center> <button class="btn btn-dark" id="toggle-tables-btn">Resident Dashbord</button></center>
+      <br>
+      <div id="credit-payments-table">
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app.png' %}')">
+
+            <img src="{% static 'img/app.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+          </figure>
+
+            <div class="portfolio-info">
+              
+              <a href="{% static 'img/app.png' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app2.png' %}')">
+
+              <img src="{% static 'img/app2.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+            </figure>
+  
+              <div class="portfolio-info">
+             
+              <a href="{% static 'img/app2.png' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app3.png' %}')">
+
+              <img src="{% static 'img/app3.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+            </figure>
+  
+              <div class="portfolio-info">
+            
+              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app4.png' %}')">
+
+            <img src="{% static 'img/app4.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+          </figure>
+
+            <div class="portfolio-info">
+          
+            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+            
+          </div>
+          
+        </div>
+
+      </div>  
+        </div>
+    
+        <div id="travaux-payments-table" style="display:none;">
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app.png' %}')">
+  
+              <img src="{% static 'img/app6.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+            </figure>
+  
+              <div class="portfolio-info">
+                
+                <a href="{% static 'img/app6.png' %}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"></a>
+                <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+              </div>
+            </div>
+          
+          <div class="col-lg-4 col-md-20 portfolio-item filter-app">
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app7.png' %}')">
+  
+              <img src="{% static 'img/app7.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+            </figure>
+  
+              <div class="portfolio-info">
+            
+              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+              
+            </div>
+            
+          </div>
+          <div class="col-lg-4 col-md-20 portfolio-item filter-app">
+            <figure class="zoom" onmousemove="zoom(event)" style="background-image:url('{% static 'img/app8.png' %}')">
+  
+              <img src="{% static 'img/app8.png' %}"  class="img-fluid portfolio-lightbox preview-link" data-gallery="portfolioGallery" alt="">
+            </figure>
+  
+              <div class="portfolio-info">
+            
+              <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"></a>
+              <a href="portfolio-details.html" class="details-link" title="More Details"></a>
+              
+            </div>
+            
+          </div>
+  
+        </div>        </div>
+
+      
+    <!-- End Portfolio Section -->
+
+
+
+    <!-- ======= Team Section ======= -->
+    <section id="team">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Our Team</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team-1.jpg" alt=""></div>
+              <div class="details">
+                <h4>Amine Mzoughy</h4>
+                <span>Head Chief</span>
+                <div class="social">
+                  <a href="https://twitter.com/Amine08331686"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/eat.shit24"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/mzoughy.jpg/"><i class="bi bi-instagram"></i></a>
+                  <a href="linkedin.com/in/amine-mzoughy/"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact">
+      <div class="container">
+        <div class="form">
+          <div class="section-header">
+            <h2>Clients </h2>
+            <p>Get Your own copy, send your infos here and we will notify you.</p>
+          </div>
+  
+
+          {% block content %}
+          <div class="card1 container" >
+            <div class="row g-0">
+
+            <form method="post">
+              {% csrf_token %}
+       
+       
+              <label for="name">Name</label>
+              {{ mail.name }}
+              <label for="email">Email</label>
+              {{ mail.email }}
+              <label for="phone">phone</label>
+              {{ mail.phone }}
+              <br>
+              <button>
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Send</span>
+              </button>
+                        </form>
+      
+                </div>
+                {% endblock %}
+              </div>
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <br><br>
+
+          <h2>Contact Us</h2>
+          <p>You can contact us for any question.</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+216 51 752 552</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">
+                smartlivingservice@gmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Smart Living</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    var toggleBtn = document.getElementById("toggle-tables-btn");
+    var creditPaymentsTable = document.getElementById("credit-payments-table");
+    var travauxPaymentsTable = document.getElementById("travaux-payments-table");
+    
+    toggleBtn.addEventListener("click", function() {
+      if (creditPaymentsTable.style.display === "none") {
+        creditPaymentsTable.style.display = "table";
+        travauxPaymentsTable.style.display = "none";
+        toggleBtn.textContent = "Resident Dashbord";
+      } else {
+        creditPaymentsTable.style.display = "none";
+        travauxPaymentsTable.style.display = "table";
+        toggleBtn.textContent = "Owner Dashbord";
+      }
+    });
+  </script>
+<script>
+  function zoom(e){
+  var zoomer = e.currentTarget;
+  e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+  e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+  x = offsetX/zoomer.offsetWidth*100
+  y = offsetY/zoomer.offsetHeight*100
+  zoomer.style.backgroundPosition = x + '% ' + y + '%';
+}</script>
+</body>
+
+</html>

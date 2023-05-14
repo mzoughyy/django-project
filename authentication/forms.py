@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from .models  import profile
 from django.forms import ModelForm
 
-
+from .models import ChatMessage
 
 class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"First Name","class":"form-control"}))    
@@ -48,15 +48,18 @@ class UserUpdateForm(UserChangeForm):
         fields = ['first_name','last_name','username','email']
 class UpdateProfileForm(ModelForm):
     phone = forms.DecimalField(widget=forms.NumberInput(attrs={"class":"form-control"}))
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={"class":"form-control"}), required=False)
+
 
 
     class Meta:
         model = profile
-        fields = ('CIN','phone','appartment','parking_spot')
+        fields = ('CIN','phone','appartment','parking_spot','image')
         widgets = {
             'CIN':forms.NumberInput(attrs={'class':'form-control'}),
             'appartment':forms.Select(attrs={'class':'form-control form-group','width':'500px',"placeholder":"apprtmentS",'style': 'width:230px'}),
             'parking_spot':forms.Select(attrs={'class':'form-control form-group','style': 'width:230px'}),
+
 
 
         }
@@ -65,3 +68,15 @@ class EmailForm(forms.Form):
     subject = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Subject","class":"form-control"}))   
     message = forms.CharField(widget=forms.Textarea(attrs={"placeholder":"Message","class":"form-control"}))    
  
+
+class ChatMessageForm(ModelForm):
+    body = forms.CharField(widget=forms.Textarea(attrs={"class":"forms", "rows":3, "placeholder": "Type message here"}))
+    class Meta:
+        model = ChatMessage
+        fields = ["body",]
+
+class EmailUs(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Name","class":"form-control"}))   
+    email = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Email","class":"form-control "}))    
+    phone = forms.DecimalField(widget=forms.NumberInput(attrs={"class":"form-control","placeholder":"Phone"}))
+

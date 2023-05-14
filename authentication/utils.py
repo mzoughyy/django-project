@@ -14,7 +14,7 @@ def send_sms(modeladmin, request, queryset, message):
         profile = user.profile
 
         # Add the '+' prefix to the phone number
-        to_number = '+' + str(profile.phone)
+        to_number = '+' + '216' + str(profile.phone)
 
         try:
             message = client.messages.create(

@@ -114,8 +114,8 @@ DATABASES = {
 }
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
-EMAIL_HOST_USER="aminelaymoun@gmail.com"
-EMAIL_HOST_PASSWORD = 'btahblcepdvbpepy'
+EMAIL_HOST_USER="smartlivingservice@gmail.com"
+EMAIL_HOST_PASSWORD = 'oiwydxenynmbipbh'
 EMAIL_USE_TLS = True
 
 # Password validation

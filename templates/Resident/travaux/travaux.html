@@ -47,13 +47,17 @@
 <a href="{% url 'profile'%}"><span class="fa fa-user"></span> Profile</a>
 </li>
 <li>
-<a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+  <a href="{% url 'index' %}"><span class="fa fa-comments-o"></span> Chat</a>
 </li>
 <li>
-<a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
+<a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span>Construction</a></li>
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contact</a>
 </li>
+<li>
+  <a href="{% url 'view_payments' %}"><span class="fa fa-usd"></span> Payments</a>
+  </li>
+
 </ul>
 <div class="footer">
 </div>
@@ -85,13 +89,13 @@
   <div class="d-flex align-items-end row">
   <div class="col-sm-7">
   <div class="card-body">
-      <h5 class="card-title text-primary">Travaux</h5>
-  <p class="mb-4">Consulter les Travaux ici.</p>
+      <h5 class="card-title text-primary">Constructions</h5>
+  <p class="mb-4">View The Outgoing And Done Constructions Here.</p>
 </div>
 </div>
 <div class="col-sm-5 text-center text-sm-left">
   <div class="card-body pb-0 px-0 px-md-4">
-    <img src="{% static 'img/travaux.png' %}" alt=""  class="man2">
+    <img src="{% static 'img/travaux.png' %}" alt=""  class="man3">
 </div></div>
 </div>
 {% include "partials/_calender.html" %}
@@ -106,8 +110,8 @@
         <thead>
         <tr class="table100-head">
         <th class="column1">Name</th>
-        <th class="column2">Travaux Type</th>
-        <th class="column3">Cout</th>
+        <th class="column2">Construction Type</th>
+        <th class="column3">Cost</th>
         <th class="column3">Status</th>
 
      

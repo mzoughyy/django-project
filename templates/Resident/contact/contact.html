@@ -43,7 +43,7 @@
   <a href="{% url 'profile'%}"><span class="fa fa-user"></span> Profile</a>
 </li>
 <li>
-<a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+  <a href="{% url 'index' %}"><span class="fa fa-comments-o"></span> Chat</a>
 </li>
 <li>
   <a href="{% url 'travaux' %}"><span class="fa fa-exclamation-triangle" style='color:white'></span> Travaux</a></li>
@@ -51,6 +51,10 @@
 <li>
 <a href="{% url 'contact' %}"><span class="fa fa-paper-plane"></span> Contacts</a>
 </li>
+<li>
+  <a href="{% url 'view_payments' %}"><span class="fa fa-usd"></span> Payments</a>
+  </li>
+
 </ul>
 <div class="footer">
 </div>
@@ -82,8 +86,8 @@
   <div class="d-flex align-items-end row">
   <div class="col-sm-7">
   <div class="card-body">
-      <h5 class="card-title text-primary"> Contact</h5>
-  <p class="mb-4"> Contactez nous ici.</p>
+      <h5 class="card-title text-primary"> Report</h5>
+  <p class="mb-4"> Report Something Here.</p>
 </div>
 </div>
 <div class="col-sm-5 text-center text-sm-left">
@@ -105,23 +109,28 @@
   <br><br><br>
   <br><br><br>
   <br><br><br>
+    <br><br><br>    <br><br><br>
     <br><br><br>
 
+
   <div class="login-box">
-    <p>Contactez nous</p>
+    <p>Report Something</p>
     {% include "partials/_messages.html" %}
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="user-box">
         <input required="" name="subject" type="text">
-        <label>subject</label>
+        <label>Subject</label>
       </div>
       <div class="user-box">
         <textarea required="" name="message" ></textarea>
         <label>Message</label>
       </div>
-
-      <input type="submit" value="Envoyer" class="btn btn-anim4 a2">
+      <div class="user-box">
+        <input type="file" name="image" multiple>
+        <label>Image</label>
+      </div>
+      <input type="submit" value="Send" class="btn btn-anim4 a2">
     </form>
   </div>
 <script>
