@@ -19,7 +19,7 @@ def send_sms(modeladmin, request, queryset, message):
         try:
             message = client.messages.create(
                 body=message,
-                from_='+12763294190',  # Replace with your Twilio number
+                from_='+xxxx',  # Replace with your Twilio number
                 to=to_number
             )
             print(message.sid)
