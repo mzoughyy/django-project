@@ -5,8 +5,8 @@ from django.core.mail import send_mail
 from django.contrib.auth import get_user_model
 
 def send_sms(modeladmin, request, queryset, message):
-    account_sid = 'AC91dcce99836434151f6893f7f2e14890'
-    auth_token = '462738c27df7ccfb3d9bcaf2713815ff'
+    account_sid = 'xxx'
+    auth_token = 'xx'
     client = Client(account_sid, auth_token)
 
     for user in queryset:
