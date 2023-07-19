@@ -107,7 +107,7 @@ DATABASES = {
         'ENGINE'  : 'django.db.backends.mysql', 
         'NAME'    : 'DjangoDB',                 
         'USER'    : 'root',                    
-        'PASSWORD': 'syndicDB',             
+        'PASSWORD': 'xxxx',             
         'HOST'    : 'localhost',               
         'PORT'    : '3306',
     }
@@ -115,7 +115,7 @@ DATABASES = {
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_HOST_USER="smartlivingservice@gmail.com"
-EMAIL_HOST_PASSWORD = 'oiwydxenynmbipbh'
+EMAIL_HOST_PASSWORD = 'xxxxxxxxx'
 EMAIL_USE_TLS = True
 
 # Password validation
